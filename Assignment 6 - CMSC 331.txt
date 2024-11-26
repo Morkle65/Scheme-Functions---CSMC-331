@@ -1,0 +1,22 @@
+(define (chop lst)
+  (reverse (cdr (reverse lst))))
+	
+(define (unchop lst lst2)
+  (reverse (cons lst2 (reverse lst))))
+	
+	
+	
+(define (shift-left lst)
+  (cond
+    [(null? lst) '()]
+    [(equal? (cons (car lst) null) lst) lst]
+    [else (cons (car (cdr lst)) (shift-left (cons (car lst) (cdr (cdr lst)))))]))
+	
+(define (shift-right lst)
+  (cond
+    [(null? lst) '()]
+    [(equal? (cons (car lst) null) lst) lst]
+    [else (cons (car (reverse lst)) (reverse (cdr (reverse lst))))]))
+
+
+
